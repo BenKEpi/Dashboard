@@ -1,0 +1,52 @@
+<div class="signin-content">
+  <mat-card>
+    <mat-card-content>
+      <div class="sign-form">
+        <mat-card-title>Sign In.</mat-card-title>
+        <mat-form-field class="sign-form-input">
+          <mat-label>Mail</mat-label>
+          <input type="text" matInput #userName required/>
+        </mat-form-field>
+
+        <mat-form-field class="sign-form-input">
+          <mat-label>Password</mat-label>
+          <input type="password" matInput #userPassword required/>
+        </mat-form-field>
+
+        <!-- Calling SignIn Api from AuthService -->
+        <div class="text-center">
+          <button mat-raised-button  color="primary" type="button" (click)="authService.SignIn(userName.value, userPassword.value)">Log In</button>
+        </div>
+        <div class="forgot-password text-center">
+          <mat-card-subtitle routerLink="/forgot-password">Forgot Password?</mat-card-subtitle>
+        </div>
+      </div>
+      <div>
+        <span>Or login with:</span>
+        <div class="flex-button-container">
+          <div class="button-container">
+            <button mat-fab color="basic" (click)="authService.GoogleAuth()">
+              <img class="google-icon" src="assets/google_icon.png" />
+            </button>
+          </div>
+          <div class="button-container">
+            <button mat-fab color="basic" (click)="authService.GithubAuth()">
+              <img class="google-icon" src="assets/github_logo.png" />
+            </button>
+          </div>
+          <div class="button-container">
+            <button mat-fab color="basic" (click)="authService.TwitterAuth()">
+              <img class="google-icon" src="assets/twitter_logo.png" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="redirectToLogin">
+        <mat-card-subtitle>Don't have an account ?<span class="redirect" routerLink="/register-user"> Sign Up</span></mat-card-subtitle>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+

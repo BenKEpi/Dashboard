@@ -1,0 +1,14 @@
+<div *ngFor="let service of dataSource" style="margin-top: 20px; margin-left: 5px">
+  <mat-card-title>{{service.name}}</mat-card-title>
+  <mat-list role="list" dir="ltr">
+    <mat-list-item *ngFor="let widget of service.widgets">
+      <div class="button-space" color="primary">
+        <button mat-icon-button color="primary" aria-label="{{widget.description}}" (click)="addWidget(widget)">
+          <mat-icon>add</mat-icon>
+        </button>
+        {{widget.title}}
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </mat-list>
+</div>
